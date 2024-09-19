@@ -9,14 +9,14 @@ import axios from 'axios'
 const Home = () => {
     const [books, setBooks] = useState([
     ])
-    const [loading, setLoading] = useState(false)
+    const [loading, setLoading] = useState(true)
     const [showType, setShowType] = useState('table')
 
     useEffect(() => {
-        setLoading(true)
         axios
           .get('http://localhost:5173/api/books')
           .then((response) => {
+            console.log(response)
             setBooks(response.data.data)
             setLoading(false)
           })
